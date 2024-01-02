@@ -1,0 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const dataValidator_1 = require("./../../utilities/dataValidator");
+const express_1 = require("express");
+const course_category_controller_1 = require("./course-category.controller");
+const course_category_validator_1 = require("./course-category.validator");
+const courseCategoryRoutes = (0, express_1.Router)();
+courseCategoryRoutes.post("/", (0, dataValidator_1.dataValidator)(course_category_validator_1.courseCategoryValidator), course_category_controller_1.courseCategoryController.addNewCourseCategory);
+courseCategoryRoutes.get("/", course_category_controller_1.courseCategoryController.getAllCourseCategory);
+exports.default = courseCategoryRoutes;
